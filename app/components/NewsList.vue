@@ -29,7 +29,7 @@
   
   // Fetch news using the provided API
   const fetchNews = async () => {
-    const url = 'https://api.worldnewsapi.com/top-news?source-country=ng&language=en&date=2025-03-31';
+    const url = 'https://api.worldnewsapi.com/top-news?source-country=ng&language=en&date=2025-04-05';
     const apiKey = 'ab411aa672d14681897f18325b82456f';
   
     try {
