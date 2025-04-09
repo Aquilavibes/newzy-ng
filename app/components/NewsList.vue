@@ -10,11 +10,12 @@
         rel="noopener noreferrer"
         class="block bg-white shadow rounded-2xl overflow-hidden hover:shadow-xl transition"
       >
-        <img
-          :src="article.urlToImage || '/default-news.jpg'"
-          :alt="article.title"
-          class="w-full h-48 object-cover"
-        />
+      <img
+  :src="article.image || '/default-news.jpg'"
+  :alt="article.title"
+  class="w-full h-48 object-cover"
+/>
+
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">{{ article.title }}</h3>
           <p class="text-gray-600 text-sm mb-4">
@@ -34,10 +35,10 @@ const news = ref([])
 
 const fetchNews = async () => {
   try {
-    const response = await fetch('https://newsapi.org/v2/everything?q=crypto&apiKey=4a2c1c1b37e142d3a599d1b55099584b')
+    const response = await fetch('https://gnews.io/api/v4/search?q=crypto&apikey=81519f63357e406f702a0c0e84444fef')
     const data = await response.json()
 
-    if (data.status === 'ok') {
+    if (data.articles) {
       news.value = data.articles
     } else {
       console.error('API error:', data)
